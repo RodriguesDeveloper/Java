@@ -1,100 +1,85 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Model;
-import Conect.Conexao;
 /**
- * @author samuel
+ *
+ * @author samuel rodrigues
  */
 public class Cliente {
-    private int codigo;
-    private int cpf;
-    private String nome;
-    private String endereco;
-    private int telefone;
-    private String email;
-    private int datanasc;
-    
-    String sql;
-    Conexao con = new Conexao();
-    
-   public Cliente(){
-      this(0,0,"","",0,"",0,"");
-   }
-   
-    public Cliente(int codigo, int cpf, String nome, String endereco, int telefone, String email, int datanasc, String sql) {
-        this.codigo = codigo;
-        this.cpf = cpf;
-        this.nome = nome;
-        this.endereco = endereco;
-        this.telefone = telefone;
-        this.email = email;
-        this.datanasc = datanasc;
-        this.sql = sql;
-    }
-    
-    public String getSql() {
-        return sql;
+
+    private int Codigo;
+    private String Nome;
+    private String DataNasc;
+    private String Endereco;
+    private String Telefone;
+
+    public Cliente() {
+        this.Codigo = 0;
+        this.Nome = "";
+        this.DataNasc = "";
+        this.Endereco = "";
+        this.Telefone = "";
     }
 
-    public void setSql(String sql) {
-        this.sql = sql;
-    }
-    
-    public void setCodigo(int codigo){
-         this.codigo=codigo;
-    }
-    public int getCodigo(){
-        return codigo;
+    public Cliente(int Codigo, String Nome, String DataNasc, String Endereco, String Telefone) {
+        this.Codigo = Codigo;
+        this.Nome = Nome;
+        this.DataNasc = DataNasc;
+        this.Endereco = Endereco;
+        this.Telefone = Telefone;
     }
 
-    public int getCpf() {
-        return cpf;
+    public int getCodigo() {
+        return Codigo;
     }
 
-    public void setCpf(int cpf) { // validar via set (test)
-        this.cpf=cpf;
+    public void setCodigo(int Codigo) {
+        this.Codigo = Codigo;
     }
 
     public String getNome() {
-        return nome;
+        return Nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String Nome) {
+        this.Nome = Nome;
+    }
+
+    public String getDataNasc() {
+        return DataNasc;
+    }
+
+    public void setDataNasc(String DataNasc) {
+        this.DataNasc = DataNasc;
     }
 
     public String getEndereco() {
-        return endereco;
+        return Endereco;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setEndereco(String Endereco) {
+        this.Endereco = Endereco;
     }
 
-    public int getTelefone() {
-        return telefone;
+    public String getTelefone() {
+        return Telefone;
     }
 
-    public void setTelefone(int telefone) {
-        this.telefone = telefone;
+    public void setTelefone(String Telefone) {
+        this.Telefone = Telefone;
     }
 
-    public String getEmail() {
-        return email;
+    public void Imprimir_Todos() {
+        System.out.println("");
+        System.out.println("");
+        System.out.println("Código: " + this.Codigo);
+        System.out.println("Nome: " + this.Nome);
+        System.out.println("Data de Nascimento: " + this.DataNasc);
+        System.out.println("Endereço: " + this.Endereco);
+        System.out.println("Telefone: " + this.Telefone);
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getDatanasc() {
-        return datanasc;
-    }
-
-    public void setDatanasc(int datanasc) {
-        this.datanasc = datanasc;
-    }
-    
-    public void cadastrarCliente(){ /*metodo cadastrarCliente*/
-    sql = " insert into clientes(cpf,nome,endereco,telefone,email,datanasc) values('"+cpf+"','"+nome+"','"+endereco+"','"+telefone+"','"+email+"','"+datanasc+"')";
-    con.executeSQL(sql);
-    }   
 }
